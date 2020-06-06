@@ -23,14 +23,9 @@ def lesser_of_two_evens(a, b):
     :return: lesser of the evens or greater of the other combinattion
     """
     if a % 2 == 0 and b % 2 == 0:
-        if a > b:
-            return b
-        else:
-            return a
-    elif a > b:
-        return a
+        return min(a, b)
     else:
-        return b
+        return max(a, b)
 
 
 # Check
@@ -51,8 +46,8 @@ def animal_crackers(text):
     :param text: Two word string
     :return: Boolean
     """
-    t = list(text.lower().split())
-    return t[0][0] in t[1][0]
+    t = text.lower().split()
+    return t[0][0] == t[1][0]
 
 
 # Check
