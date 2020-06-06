@@ -1,13 +1,13 @@
 # Function Practice Exercises
 # Problems are arranged in increasing difficulty:
 #
-# Warmup - these can be solved using basic comparisons and methods
+# Warm-up - these can be solved using basic comparisons and methods
 # Level 1 - these may involve if/then conditional statements and simple methods
 # Level 2 - these may require iterating over sequences, usually with some kind of loop
 # Challenging - these will take some creativity to solve
 
-# WARMUP SECTION:
-# NUMBEER 1
+# WARM-UP SECTION:
+# NUMBER 1
 # LESSER OF TWO EVENS: Write a function that returns the lesser of two given numbers if both numbers are even, but returns the greater if one or both numbers are odd
 # lesser_of_two_evens(2,4) --> 2
 # lesser_of_two_evens(2,5) --> 5
