@@ -7,7 +7,6 @@
 # The board should be printed out every time a player makes a move
 # You should be able to accept input of the player position and then place a symbol on the board
 
-
 # The work flow:
 # Ask input
 # Check input (find number)
@@ -15,12 +14,15 @@
 # Show board
 # Check win
 # Check move (find blank)
-# from IPython.display import clear_output# Global variables
+
+##############################
+# from IPython.display import clear_output# Global variables # to run in any IDE other than Jupyter notebook
 
 
 def show_board(v_p, v_g):
-    # clear_output()
-    print('\n' * 100)
+    # clear_output()    # to run in jupyter notebook
+    print('\n' * 100)   # to run in any IDE other than Jupyter notebook
+
     print(" Available\t Game board\n positions\t  display!\n")
     print(f" {v_p['p7']} | {v_p['p8']} | {v_p['p9']} \t  {v_g['g7']} | {v_g['g8']} | {v_g['g9']}")
     print("-----------\t -----------")
@@ -36,8 +38,8 @@ def initiate_game(preset):
     elif 'O' in p1symbol.upper():
         preset.pop(0)
     else:
-        # clear_output()
-        print('\n' * 100)
+        # clear_output()    # to run in jupyter notebook
+        print('\n' * 100)  # to run in any IDE other than Jupyter notebook
         print("\n\nWrong input!")
         initiate_game(preset)
     return preset
@@ -72,8 +74,8 @@ def replay():
 
 
 while True:
-    # clear_output()
-    print('\n' * 100)
+    # clear_output()    # to run in jupyter notebook
+    print('\n' * 100)  # to run in any IDE other than Jupyter notebook
     print("Welcome to Tic Tac Toe!")
 
     # Declare variables
