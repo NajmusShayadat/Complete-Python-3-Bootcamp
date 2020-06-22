@@ -98,12 +98,12 @@ def take_bet(chips):
     # Bet cannot exceed the balance and bet must be an integer.
     while True:
         try:
-            chips.bet = int(input(f'Your Chips balance is {chips.balance}.\nHow much do you want to bet? '))
+            chips.bet = int(input(f'\nYour Chips balance is {chips.balance}.\nHow much do you want to bet? '))
         except ValueError:
-            print('Must be an integer input!')
+            print('\nMust be an integer input!')
         else:
             if chips.bet > chips.balance:
-                print(f"You can't exceed {chips.balance}")
+                print(f"\nYou can't exceed {chips.balance}")
             else:
                 break
 
@@ -117,55 +117,56 @@ def hit_or_stand(deck1, hand):
     global game_on
 
     while True:
-        x = input("Hit or Stand? Enter h or s: ")
+        x = input("\nHit or Stand? Enter h or s: ")
         if x[0].lower() == 'h':
             hit(deck1, hand)
         elif x[0].lower() == 's':
-            print('Player stands!')
+            print('\nPlayer stands!')
             game_on = False
         else:
-            print(" Please enter h for Hit or s for Stand.")
+            print("\nPlease enter h for Hit or s for Stand.")
             continue
         break
 
 
 def show_some(player, dealer):
     print("\nDealer's Hand:")
-    print(f"{dealer.cards[0]}")
-    print("<Hidden Card>")
+    print(f"\t{dealer.cards[0]}")
+    print("\t<Hidden Card>")
 
-    print("\nPlayer's Hand:", *player.cards, sep='\n')
+    print("\nPlayer's Hand:", *player.cards, sep='\n\t')
+    print("Player's total: ", player.value)
 
 
 def show_all(player, dealer):
-    print("\nDealer's Hand: ", *dealer.cards, sep='\n')
+    print("\nDealer's Hand: ", *dealer.cards, sep='\t\n')
     print("Dealer's hand: ", dealer.value)
-    print("\nPlayer's Hand: ", *player.cards, sep='\n')
-    print("player's hand: ", player.value)
+    print("\nPlayer's Hand: ", *player.cards, sep='\t\n')
+    print("Player's hand: ", player.value)
 
 
 def player_busts(chips):
-    print("Player Busted!")
+    print("\nPlayer Busted!")
     chips.lose()
 
 
 def player_wins(chips):
-    print("Player wins!")
+    print("\nPlayer wins!")
     chips.win()
 
 
 def dealer_busts(chips):
-    print("Dealer Busted!")
+    print("\nDealer Busted!")
     chips.win()
 
 
 def dealer_wins(chips):
-    print("Dealer wins!")
+    print("\nDealer wins!")
     chips.lose()
 
 
 def push():
-    print("Score tie's, it's a push!")
+    print("\nScore tie's, it's a push!")
 
 
 # Game Starts
