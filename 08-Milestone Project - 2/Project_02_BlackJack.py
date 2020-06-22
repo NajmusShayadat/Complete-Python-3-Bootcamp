@@ -103,7 +103,9 @@ def take_bet(chips):
             print('\nMust be an integer input!')
         else:
             if chips.bet > chips.balance:
-                print(f"\nYou can't exceed {chips.balance}")
+                print(f"\nYou can't exceed {chips.balance}!")
+            elif chips.bet < 1:
+                print("\nPlease bet more than 0! ")
             else:
                 break
 
@@ -139,10 +141,10 @@ def show_some(player, dealer):
 
 
 def show_all(player, dealer):
-    print("\nDealer's Hand: ", *dealer.cards, sep='\t\n')
-    print("Dealer's hand: ", dealer.value)
-    print("\nPlayer's Hand: ", *player.cards, sep='\t\n')
-    print("Player's hand: ", player.value)
+    print("\nDealer's Hand: ", *dealer.cards, sep='\n\t')
+    print("Dealer's total: ", dealer.value)
+    print("\nPlayer's Hand: ", *player.cards, sep='\n\t')
+    print("Player's total: ", player.value)
 
 
 def player_busts(chips):
