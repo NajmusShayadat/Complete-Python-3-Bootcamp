@@ -18,6 +18,7 @@ to help you define the Deck and the Player's hand. There are many right ways to 
 
 import random
 
+# global variables
 suits = ('Hearts', 'Diamonds', 'Spades', 'Clubs')
 ranks = ('2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace')
 values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'Jack': 10, 'Queen': 10, 'King': 10,
@@ -32,6 +33,7 @@ class Card:
         self.rank = rank
         self.suit = suit
 
+    # Return string of card class
     def __str__(self):
         return self.rank + ' of ' + self.suit
 
@@ -92,9 +94,11 @@ class Chips:
 
 
 def take_bet(chips):
+
+    # Bet cannot exceed the balance and bet must be an integer.
     while True:
         try:
-            chips.bet = int(input('How much do you want to bet '))
+            chips.bet = int(input(f'Your Chips balance is {chips.balance}.\nHow much do you want to bet? '))
         except ValueError:
             print('Must be an integer input!')
         else:
@@ -165,21 +169,27 @@ def push():
 
 
 # Game Starts
+# Create initial balance of the chips
+player_chips = Chips()
+
 while True:
+
     print(
         'Welcome to BlackJack! Get as close to 21 as you can without going over!\nDealer hits until she reaches 17. '
         'Aces count as 1 or 11.')
 
     deck = Deck()
+    deck.shuffle_cards()
+
     player_hand = Hand()
+    # Deal 2 cards for player
     player_hand.card_add(deck.deal())
     player_hand.card_add(deck.deal())
 
     dealer_hand = Hand()
+    # Deal 2 cards for dealer
     dealer_hand.card_add(deck.deal())
     dealer_hand.card_add(deck.deal())
-
-    player_chips = Chips()
 
     take_bet(player_chips)
 
@@ -211,12 +221,18 @@ while True:
         else:
             push()
 
-    print(f"Player's winning balance is {player_chips.balance}")
+    print(f"\nPlayer's balance is {player_chips.balance}")
 
-    new_game = input("Would you like to play again? Enter y or n")
-    if new_game[0].lower() == 'y':
-        game_on = True
-        continue
+    # Check the final balance is more than 0 and then ask for replay.
+    if player_chips.balance != 0:
+        new_game = input("\nWould you like to play again? Enter y/n: ")
+        if new_game[0].lower() == 'y':
+            game_on = True
+            continue
+        else:
+            print("\nThanks for playing!")
+            break
+
     else:
-        print("Thanks for playing!")
+        print(f"\nYour chips balance is Zero (0).\nThank you for playing!")
         break
