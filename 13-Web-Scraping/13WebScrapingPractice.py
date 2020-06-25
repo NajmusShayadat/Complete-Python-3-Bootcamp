@@ -18,9 +18,7 @@ import bs4
 import re
 
 page_url = "http://books.toscrape.com/catalogue/page-{}.html"
-
 book_dict = {}
-
 pat = r'\d+.\d+'
 
 for n in range(1, 10):
