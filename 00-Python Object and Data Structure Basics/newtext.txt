@@ -1,4 +1,1 @@
-First line
-str1
-str2
-str3
+This is the First linefirst line
