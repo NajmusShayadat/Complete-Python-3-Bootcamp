@@ -26,7 +26,7 @@ class Deck:
         self.all_cards = []
         for suit in suits:
             for rank in ranks:
-                # create a card object and append in the deck
+                # create a Card object and append in the deck object
                 self.all_cards.append(Card(suit, rank))
 
     def deal(self):
@@ -48,7 +48,6 @@ class HandDeck:
         self.cards = []
 
     def play(self):
-        print(self.cards[0])
         return self.cards.pop(0)
 
     def win_round(self, new_cards):
@@ -80,7 +79,7 @@ deck = Deck()
 # Deck shuffle
 deck.shuffle()
 
-# Creat 2 hands full of cards
+# Create 2 hands full of cards
 hand1 = HandDeck('Bappy')
 hand2 = HandDeck('Jose')
 
@@ -99,8 +98,10 @@ while game_on:
     print(f"Round {r}")
 
     # players play 1 card each to the board
-    board = [hand1.play(), hand2.play()]
-    print(f"player one plays {board[-2]}")
+    board = []
+    board.append(hand1.play())
+    print(f"player 1 plays {board[-1]}")
+    board.append(hand2.play())
     print(f"player 2 plays {board[-1]}")
 
     # If any player runs out of cards. Game exits declaring one winner.
